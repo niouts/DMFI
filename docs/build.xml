@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="DMFI" default="ci" basedir="../../">
-    <property name="source" value="DMFI" />
+    <property name="source" value="src" />
 
     <target name="ci"
         description="Tâche principale d'intégration continue"
@@ -22,16 +22,10 @@
 
     <target name="qa" description="Lance les outils d'analyse">
 		<phingcall target="pdepend" />
-		<phingcall target="phpmd" />
-		<phingcall target="phpcpd" />
-		<phingcall target="phploc" />
-		<phingcall target="phpcs" />
-		<phingcall target="phpdoc" />
-		<phingcall target="phpcb" />
 	</target>
 
 	<target name="pdepend">
-		<phpdepend file="${project.basedir}/${source}/www">
+		<phpdepend file="${project.basedir}/${source}/application">
 			<logger type="jdepend-xml" outfile="${project.basedir}/build/logs/jdepend.xml" />
 			<logger type="jdepend-chart" outfile="${project.basedir}/build/pdepend/dependencies.svg" />
 			<logger type="overview-pyramid" outfile="${project.basedir}/build/pdepend/overview-pyramid.svg" />
