@@ -1,0 +1,41 @@
+<h2>liste des articles transverses</h2>
+
+<?php 
+if ($this->FlashMessages)
+{ ?>
+	<div class="FlashMessages info">
+	<?php 
+		foreach ($this->FlashMessages as $msg)
+		{
+			echo $msg.'<br>';
+		}
+	?>
+	</div>
+<?php 
+}
+?>
+
+<table class="dataTable">
+	<thead>
+		<tr>
+			<th>Création</th>
+			<th>Publication</th>
+			<th>Fin Publication</th>
+			<th>Titre</th>
+			<th><a href="/administration/transverse/editer"><div class="btn_add icone" title="Ajouter"></div></a></th>
+		</tr>
+	</thead>
+	<tbody>
+<?php 	foreach ($this->aArticles as $article) { ?>
+		<tr>
+			<td><?php echo Application_Service_Date::mySQLToIHM($article->getCreation_dt()); ?></td>
+			<td><?php echo Application_Service_Date::mySQLToIHM($article->getPublication_dt()); ?></td>
+			<td><?php echo Application_Service_Date::mySQLToIHM($article->getFin_publication_dt()); ?></td>
+			<td><?php echo $article->getTitre(); ?>&nbsp;</td>
+			<td><a href="/administration/transverse/editer/id/<?php echo $article->getId(); ?>"><div class="btn_edit icone" title="Modifier"></div></a>
+				<a href="/administration/transverse/supprimer/id/<?php echo $article->getId(); ?>"><div class="btn_delete icone" title="Supprimer"></div></a>
+			</td>
+		</tr>	
+<?php 	}?>
+	</tbody>
+</table>

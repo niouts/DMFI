@@ -1,0 +1,7 @@
+@CHARSET "ISO-8859-1";
+.Form {
+	width: 278px;
+	margin: 0 auto;
+	border: 1px solid #666;
+	padding: 10px;
+}

@@ -1,0 +1,5 @@
+AuthUserFile /data/projects/default/html/public/livraison/.password
+AuthGroupFile /dev/null
+AuthName "Accès sécurisé au site" 
+AuthType Basic
+Require valid-user

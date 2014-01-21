@@ -1,0 +1,41 @@
+<h2>liste des utilisateurs</h2>
+
+<?php 
+if ($this->FlashMessages)
+{ ?>
+	<div class="FlashMessages info">
+	<?php 
+		foreach ($this->FlashMessages as $msg)
+		{
+			echo $msg.'<br>';
+		}
+	?>
+	</div>
+<?php 
+}
+?>
+
+<table class="dataTable">
+	<thead>
+		<tr>
+			<th>Nom</th>
+			<th>Prenom</th>
+			<th>Mail</th>
+			<th>Login</th>
+			<th><a href="/administration/utilisateur/editer"><div class="btn_add icone" title="Ajouter"></div></a></th>
+		</tr>
+	</thead>
+	<tbody>
+<?php 	foreach ($this->aUtilisateurs as $uti) { ?>
+		<tr>
+			<td><?php echo $uti->getNom()?>&nbsp;</td>
+			<td><?php echo $uti->getPrenom()?>&nbsp;</td>
+			<td><?php echo $uti->getMail()?>&nbsp;</td>
+			<td><?php echo $uti->getLogin()?>&nbsp;</td>
+			<td><a href="/administration/utilisateur/editer/id/<?php echo $uti->getId()?>"><div class="btn_edit icone" title="Modifier"></div></a>
+				<a href="/administration/utilisateur/supprimer/id/<?php echo $uti->getId()?>"><div class="btn_delete icone" title="Supprimer"></div></a>
+			</td>
+		</tr>	
+<?php 	}?>
+	</tbody>
+</table>

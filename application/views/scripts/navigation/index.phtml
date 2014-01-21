@@ -1,0 +1,29 @@
+<nav>
+	<ul>
+		<li><a href="/" class="accueil" title="Accueil"></a></li>
+	<?php
+	foreach ($this->aRubriques as $rub) { 
+		$classeParent = (preg_match('#/'.$rub->getAdresse().'#', $this->uri)) ? 'class="active"' : '';
+	?>		
+		<li <?php echo $classeParent; ?>>
+		<a href="/<?php echo $rub->getAdresse()?>" title="<?php echo $rub->getLibelle()?>"><?php echo $rub->getLibelle()?></a>
+		<?php 	
+			$aSousRubriques = $rub->getSousRubriques();
+			if($aSousRubriques){ ?>
+		<ul>
+		<?php 
+		foreach ($aSousRubriques as $srub) { 
+			$classe = '';
+			if ($classeParent != '') {
+				$classe = (preg_match('#/'.$rub->getAdresse().'/'.$srub->getAdresse().'#', $this->uri)) ? 'class="active"' : '';
+			}		
+		?>
+			<li <?php echo $classe; ?>><a href="/<?php echo $rub->getAdresse()?>/<?php echo $srub->getAdresse()?>" title="<?php echo $srub->getLibelle()?>"><?php echo $srub->getLibelle()?></a></li>
+			<?php }?>
+		</ul>		
+	<?php 	}
+	?>
+		</li>
+<?php 	} ?>		
+	</ul>		
+</nav>

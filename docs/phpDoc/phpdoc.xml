@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpdoc>
+    <title>DMFI</title>
+    <parser>
+        <target>d:\doc_DMFI</target>
+        <markers>
+            <item>TODO</item>
+            <item>FIXME</item>
+        </markers>
+        <extensions>
+            <extension>php</extension>
+        </extensions>
+        <visibility></visibility>
+    </parser>
+    <transformer>
+        <target>d:\doc_DMFI</target>
+    </transformer>
+    <transformations>
+        <template name="responsive" />
+    </transformations>
+    <files>
+        <directory>../../application/controllers</directory>
+        <directory>../../application/models/DbTable</directory>
+        <directory>../../application/models/mappers</directory>
+        <directory>../../application/models/Object</directory>
+        <directory>../../application/services</directory>
+        <directory>../../application/modules/administration/controllers</directory>
+        <directory>../../application/modules/administration/forms</directory>
+        <directory>../../application/modules/administration/services</directory>
+        <directory>library/Tools</directory>
+        <!-- <ignore>test/*</ignore> -->
+    </files>
+</phpdoc>

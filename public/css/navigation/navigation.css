@@ -1,0 +1,150 @@
+nav {
+	width : 940px;
+	position: relative;
+	font-size: 1em;
+	padding: 0 20px;
+}
+
+nav > ul {
+	background: #CCC;
+}
+
+nav ul {
+	list-style: none outside none;
+	height: 34px;
+}
+
+nav ul li {
+	display : block;
+	float: left;
+}
+
+nav ul a {
+	padding : 0 7px;
+	line-height: 34px;
+	display: inline-block;
+	height: 34px;
+   	vertical-align: middle;
+	position: relative;
+}
+
+nav ul li ul{
+	display: none;
+	position: absolute;
+	left : 20px;
+	background: #666;
+	width: 940px;
+	color: #FFF;
+	*+margin-top:34px;
+}
+
+nav ul li ul a {
+	color:#FFF;
+}
+nav ul li:hover ul {
+	display: block;
+}
+
+nav ul .accueil {
+	background: url(/images/home.png) no-repeat 9px 1px;
+	width: 30px;
+	height: 34px;
+	padding: 0 10px 0 10px;
+	display: block;
+}
+
+nav .active > a {
+	font-weight:bold;
+}
+nav .active > a:before {
+    border-color: transparent transparent #666666;
+    border-style: solid;
+    border-width: 8px;
+    content: " ";
+    height: 0;
+    left: 50%;
+    margin-left: -8px;
+    margin-top: 1px;
+    position: absolute;
+    top: 50%;
+    vertical-align: top;
+    width: 0;
+}
+nav ul li ul li.active a:before {
+    border-color: transparent transparent #FFF;
+}
+
+nav ul li a.accueil:before {
+     border-color: transparent;
+}
+
+nav li:hover {
+	background-color:#FF7900;
+}
+nav li:hover a{
+	color:#FFF;	
+}
+
+/*.deconnexion {
+	background-image: url(/images/compte.png), url(/images/desc_white.png);
+	background-position: left top, right center;
+	background-repeat: no-repeat;
+	padding-left:30px;
+	padding-right:20px;
+	font-weight: bold;
+}*/
+.deconnexion {
+	background-image: url(/images/desc_white.png);
+	background-position: right center;
+	background-repeat: no-repeat;
+	padding-left:30px;
+	padding-right:20px;
+	font-weight: bold;
+}
+
+.deconnexion:hover {
+	color: #FF7900;
+	background-color: #CACFD2;
+}
+/*.deconnexion.ouvert {
+	background-image: url(/images/compte.png), url(/images/asc_grey.png);
+}*/
+.deconnexion.ouvert {
+	background-image: url(/images/asc_grey.png);
+}
+#blocUtilisateur {
+	width: 250px;
+	height: 110px;
+	background: #FFF;
+	border: 1px solid #CCC;
+	border-top:none;
+	position: absolute;
+	top:34px;
+	right:20px;
+	z-index:5;
+	padding:10px;
+	display:none;
+}
+
+#infosUtilisateur,
+#liensUtilisateur {
+	list-style: none;	
+}
+
+#liensUtilisateur {
+	margin-top:10px;
+}
+
+#infosUtilisateur dt{
+	height:15px;
+	margin:3px 0;
+	font-weight:bold;
+}
+
+#liensUtilisateur dt{
+	height:20px;
+	margin:3px 0;
+	background: url(/images/fleche.png) no-repeat 3px 4px;
+	padding-left:15px;
+	
+}

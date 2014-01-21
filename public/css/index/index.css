@@ -1,0 +1,109 @@
+#blocCentre {
+	width: 468px; /* 6*60 + 5*20 - 20 (padding)*/
+	margin-right: 236px; /* 220 + 20 */
+	margin-left: 236px; /* 220 + 20 */
+	font-size: 1em;		
+}
+#blocDroite {
+	width: 220px;
+	float: right;	
+}
+#blocGauche {
+	width: 220px;
+	float: left;	
+}
+
+
+/* Centre */
+#blocBanniere {
+	text-align: center;
+	margin: 0 auto 10px;
+}
+
+#blocBanniere img{
+	max-width: 460px;
+}
+
+#blocNews {
+	margin:0 4px;
+}
+#blocNews article {
+	margin-bottom: 3px;
+}
+
+/* Fin Centre */
+
+
+/* Gauche */
+#blocGauche h3 {
+	margin-bottom:0;
+}
+#blocWelcome {
+	font-size:1.6em;
+	margin-bottom:10px;
+}
+#blocWelcome .bienvenue {
+	font-size:1.2em;
+}
+#blocFlash {
+	padding:0;
+}
+
+#blocVideo iframe {
+	width: 220px;
+	height:165px;
+	border: 1px solid #CACFD2;
+	margin-bottom:10px;	
+}
+
+/* Fin Gauche*/
+
+
+/* Droite */
+#blocClick {
+	margin-top:10px;
+}
+#blocImage {
+	width:70px; 
+	float:left;
+}
+#blocTexte {
+	margin-left:70px;
+}
+
+#blocDate {
+	font-family: 'Conv_HelvNeue45',sans-serif;
+    font-size:1.5em;
+	color:#666666;	
+	margin-left:10px;
+}
+#blocTag {
+	font-family: 'Conv_HelvNeue45',sans-serif;
+    font-size: 2.7em;
+	text-align:center;
+	font-weight:normal;
+	text-align:center;
+	margin-left:10px;
+}
+#blocLien {
+	margin: 0 20px 0 30px;
+	padding: 3px 5px;
+	border: 1px solid #CACFD2;	
+}
+#blocLien a {
+	background: url(/images/fleche.png) no-repeat 3px 4px;
+	padding-left:15px;
+	font-size:1.2em;
+}
+
+#blocClick ul {
+	list-style: none;
+	font-size: 1.2em;
+}
+#blocClick li {
+	display: block;
+	background: url("/images/fleche_bas.png") no-repeat 0 3px;
+	padding-left: 17px;
+	margin-top:5px;
+}
+/* Fin Droite */

@@ -1,0 +1,44 @@
+@CHARSET "ISO-8859-1";
+.Form {
+	width: 90%;
+	margin: 0 auto;
+	border: 1px solid #666;
+	padding: 10px;
+}
+
+.notification {
+	height: 24px;
+    margin-top: 0;
+    padding: 0 5px 3px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    vertical-align: middle;
+}
+
+/*
+ * Flash
+ */
+div.flash {
+	width: 218px;
+	border: 1px solid #CACFD2;
+}
+
+/*
+ * banniere
+ */
+
+.banniere {
+	display: none;
+}
+
+div.edito{
+	width: 200px;
+	padding: 10px;
+	border: 1px solid #CACFD2;
+}
+
+div.video {
+	width: 220px;
+	height:165px;
+	border: 1px solid #CACFD2;
+}

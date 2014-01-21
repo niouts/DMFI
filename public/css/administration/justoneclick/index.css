@@ -1,0 +1,62 @@
+@CHARSET "ISO-8859-1";
+.btn_add {
+	margin-top: 0;
+    vertical-align: middle;
+}
+
+.dataTable thead th:last-child {
+	text-align: center;
+	width : 50px;
+	cursor: auto;
+}
+
+.dataTable tr {
+	height : 30px;
+	line-height: 30px;
+}
+
+.dataTable tbody td:last-child {
+	text-align: center;
+	width : 50px;
+}
+
+.dataTable tbody td:nth-last-child(2) {
+	text-align: center;
+	width : 20px;
+}
+
+.actions {
+	display: inline;
+    float: right;
+    height: 30px;
+    position: relative;
+    vertical-align: middle;
+    width: 31px;
+}
+
+.monter {
+	background: url("/images/asc_grey.png") no-repeat scroll 0 0 transparent;
+    cursor: pointer;
+    display: block;
+    height: 15px;
+    position: absolute;
+    top: 0;
+    width: 15px;
+}
+.monter:hover {
+	background: url("/images/asc_orange.png") no-repeat scroll 0 0 transparent;
+}
+
+.descendre {
+	background: url("/images/desc_grey.png") no-repeat scroll 0 0 transparent;
+    cursor: pointer;
+    display: block;
+    height: 15px;
+    position: absolute;
+    top: 12px;
+    width: 15px;
+}
+.descendre:hover {
+	background: url("/images/desc_orange.png") no-repeat scroll 0 0 transparent;
+}
+

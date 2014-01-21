@@ -1,0 +1,45 @@
+<h2>liste des paramètres</h2>
+<?php 
+if ($this->FlashMessages)
+{ ?>
+	<div class="FlashMessages info">
+	<?php 
+		foreach ($this->FlashMessages as $msg)
+		{
+			echo $msg.'<br>';
+		}
+	?>
+	</div>
+<?php 
+}
+?>
+
+<?php 
+foreach ($this->aParametres as $titre=>$aParams) { ?>
+	<h3><?php echo $titre;?></h3>
+	<table class="dataTable" id="<?php echo $titre;?>">
+		<thead>
+			<tr>
+				<th>Code</th>
+				<th>Valeur</th>
+				<th>&nbsp;</th>
+			</tr>
+		</thead>
+	<?php 
+	foreach ($aParams as $param) { ?>
+		<tr>
+			<td><?php echo substr(strstr($param->getCode(),'_'), 1);?>&nbsp;</td>
+			<td><?php echo $param->getValeur();?>&nbsp;</td>
+			<td>
+				<a href="/administration/parametre/editer/id/<?php echo $param->getId()?>">
+					<div class="btn_edit icone" title="Modifier la valeur"></div>
+				</a>
+			</td>
+		</tr>
+<?php
+	}?>
+	</table>
+	<br/>
+<?php 
+}
+?>

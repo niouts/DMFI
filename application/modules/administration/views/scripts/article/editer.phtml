@@ -1,0 +1,19 @@
+<?php 
+if ($this->FlashMessages)
+{ ?>
+	<div class="FlashMessages info">
+	<?php 
+		foreach ($this->FlashMessages as $msg)
+		{
+			echo $msg.'<br>';
+		}
+	?>
+	</div>
+<?php 
+}
+?>
+
+<h2><?php echo $this->titre; ?></h2>
+<?php echo $this->form; ?>
+
+<input type="hidden" id="controller" value="article" />

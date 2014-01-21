@@ -1,0 +1,16 @@
+<?php 
+if ($this->FlashMessages)
+{ ?>
+	<div class="FlashMessages">
+	<?php 
+		foreach ($this->FlashMessages as $msg)
+		{
+			echo $msg.'<br>';
+		}
+	?>
+	</div>
+<?php 
+}
+?>
+
+<?php echo $this->form;?>

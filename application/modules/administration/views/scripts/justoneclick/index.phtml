@@ -1,0 +1,44 @@
+<h2>liste des "Just One Click"</h2>
+
+<?php 
+if ($this->FlashMessages)
+{ ?>
+	<div class="FlashMessages info">
+	<?php 
+		foreach ($this->FlashMessages as $msg)
+		{
+			echo $msg.'<br>';
+		}
+	?>
+	</div>
+<?php 
+}
+?>
+
+<table class="dataTable">
+	<thead>
+		<tr>
+			<th>Libelle</th>
+			<th>Lien</th>
+			<th>Ordre</th>
+			<th><a href="/administration/justoneclick/editer"><div class="btn_add icone" title="Ajouter"></div></a></th>
+		</tr>
+	</thead>
+	<tbody>
+<?php 	foreach ($this->aJoc as $joc) { ?>
+		<tr id="<?php echo $joc->getOrdre()?>" >
+			<td><?php echo $joc->getLibelle()?>&nbsp;</td>
+			<td><?php echo $joc->getLien()?>&nbsp;</td>
+			<td>
+				<div class="actions" >
+					<div id="m_<?php echo $joc->getId()?>" class="monter" title="monter"></div>
+					<div id="d_<?php echo $joc->getId()?>" class="descendre" title="descendre"></div>
+				</div>
+			</td>
+			<td><a href="/administration/justoneclick/editer/id/<?php echo $joc->getId()?>"><div class="btn_edit icone" title="Modifier"></div></a>
+				<a href="/administration/justoneclick/supprimer/id/<?php echo $joc->getId()?>"><div class="btn_delete icone" title="Supprimer"></div></a>
+			</td>
+		</tr>	
+<?php 	}?>
+	</tbody>
+</table>

@@ -1,0 +1,21 @@
+<nav>
+	<?php echo $this->navigation()->menu()->setMaxDepth(0); ?>
+	
+	<?php if ($this->utilisateur) { ?>
+	<div id="blocUtilisateur">
+		<dl id="infosUtilisateur">
+	   		<dt><?php echo $this->utilisateur->getLogin(); ?></dt>
+			<dt><?php echo $this->utilisateur->getProfile()->getLibelle(); ?></dt>
+			<dt><?php echo $this->utilisateur->getMail(); ?></dt>					
+		</dl>
+		
+		<dl id="liensUtilisateur">
+	   		<dt><a href="/administration/utilisateur/editer/id/<?php echo $this->utilisateur->getId(); ?>">mon compte</a></dt>
+			<dt><a href="/administration/login/deconnexion">se déconnecter</a></dt>		
+		</dl>
+	</div>
+	<?php 
+	} 
+	?>
+</nav>
+

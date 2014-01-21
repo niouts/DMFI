@@ -1,0 +1,34 @@
+<h2>liste des rubriques</h2>
+
+<?php 
+if ($this->FlashMessages)
+{ ?>
+	<div class="FlashMessages info">
+	<?php 
+		foreach ($this->FlashMessages as $msg)
+		{
+			echo $msg.'<br>';
+		}
+	?>
+	</div>
+<?php 
+}
+?>
+
+<table class="dataTable">
+	<thead>
+		<tr>
+			<th>Libellé</th>
+			<th>Modifier</th>
+		</tr>
+	</thead>
+	<tbody>
+<?php 	foreach ($this->aRubriques as $rubrique) { ?>
+		<tr>
+			<td><?php echo $rubrique->getLibelle(); ?>&nbsp;</td>
+			<td><a href="/administration/rubrique/editer/id/<?php echo $rubrique->getId(); ?>"><div class="btn_edit icone" title="Modifier"></div></a>
+			</td>
+		</tr>	
+<?php 	}?>
+	</tbody>
+</table>

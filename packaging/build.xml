@@ -1,0 +1,204 @@
+<project name="DMFI" basedir="." default="usage">
+
+	<property name="environnement" value="production"/>
+	<property file="global.properties"></property>
+	<property file="${environnement}.properties"></property>
+	
+	<path id="svnant.classpath">
+		<fileset dir="svn-ant-lib">     
+			<include name="**/*.jar" />
+		</fileset>	
+	</path>
+	<typedef resource="org/tigris/subversion/svnant/svnantlib.xml" classpathref="svnant.classpath" />
+	
+
+	<!-- ********* PROPRIETES du projet ************* -->
+	<property name="projet" value="DMFI"/>
+	<property name="basicat" value="DMF"/>
+	<property name="nomPA" value="PA-${basicat}-${projet}-${projet.versionPA}"/>
+	<property name="nomA" value="A-${basicat}-${projet.versionA}"/>
+	
+	<property name="repLiv" value="${basedir}/../livraison/"/>	
+	<property name="repLivraison" value="${repLiv}${projet.versionA}"/>	
+	<property name="repSignature" value="${repLivraison}/signatures"/>
+	<property name="fichierConfigOri" value="config.ini"/>	
+	<property name="fichierConfig" value="${repLivraison}/public/livraison/config.ini"/>	
+	<property name="fichierHtaccess" value="${repLivraison}/public/.htaccess"/>	
+	
+	
+	<!-- **************  USAGE ************* -->
+	<target name="usage">
+		<echo message="*** Description du projet ***"/>
+		<echo message="Liste des cibles :"/>
+		<echo message="------------------"/>
+		<echo message="	- clean : nettoyage "/>
+		<echo message="					Exemple	: "/>
+		<echo message="					  ant clean "/>
+		<echo message=""/>
+		<echo message=" - exportSvn : livraison a partir d'un export svn dans ${repLivraison}"/>		
+		<echo message="					Exemple : "/>
+		<echo message="					  ant exportSvn"/>
+		<echo message=""/>
+		<echo message=" - exportLocal : livraison a partir des sources actuelles dans ${repLivraison}"/>		
+		<echo message="					Exemples : "/>
+		<echo message="					  ant exportLocal"/>
+		<echo message=""/>
+		<echo message=" - transfertFTP : transfert des fichiers a livrer vers un serveur en FTP"/>		
+		<echo message="					Exemples : "/>
+		<echo message="					  ant transfertFTP"/>
+		<echo message=""/>		
+	</target>
+
+	<!-- **************  CLEAN ************* -->
+	<target name="clean">
+		<echo message="*** Nettoyage du projet"/>
+		<delete dir="${repLiv}"/>	
+	</target>
+   
+	<!-- **************  EXPORT SVN ************* -->
+	<target name="exportSvn"  depends="svnant-disponible" if="svnant.disponible">    
+		<echo message="------------------"/>
+		<echo message="*** Nettoyage du projet"/>
+		<delete dir="${repLivraison}"/>
+		
+		<echo message="------------------"/>
+		<echo message="*** Creation de la livraison :"/>
+		<echo message="***   environnement = ${environnement} ***"/>
+		<echo message="***   projet = ${projet} ***"/>
+		<echo message="***   basicat = ${basicat} ***"/>
+		<echo message="***   version = ${projet.versionPA} ***"/>
+
+		<echo message="------------------"/>
+		<echo message="*** Export des sources SVN :"/>
+		<echo message="***   url = ${svn.url} ***"/>
+		<echo message="***   username = ${svn.user} ***"/>
+		<echo message="***   password = ${svn.pass} ***"/>
+		<svn javahl="false" svnkit="false" username="${svn.user}" password="${svn.pass}">
+			<export srcUrl="${svn.url}" destPath="${repLivraison}"/>  
+		</svn>
+		
+		<echo message="------------------"/>
+		<echo message="***   Creation du repertoire de signature et des signatures"/>
+		<mkdir dir="${repSignature}"/>
+		<touch file="${repSignature}/${nomPA}.SIG" />
+		<touch file="${repSignature}/${nomA}.SIG" />
+		
+		<echo message="------------------"/>
+		<echo message="***   Suppression des fichiers et dossiers ne devant pas etre livres"/>
+		<echo message="deleting **/.*/"/>
+		<delete defaultexcludes="false" includeemptydirs="true">
+			<fileset dir="${repLivraison}" casesensitive="yes">
+			  <patternset id="non.test.sources">
+			    <include name="**/.*/"/>
+			    <exclude name="**/.htaccess"/>
+			    <exclude name="**/.password"/>
+			  </patternset>
+			</fileset>
+		</delete>
+		<delete dir="${repLivraison}/packaging"/>
+		<delete dir="${repLivraison}/docs"/>
+		<delete dir="${repLivraison}/tests"/>
+		
+		<echo message="------------------"/>
+		<echo message="***   Modification du fichier de configuration d'installation"/>
+		<copy file="${fichierConfigOri}" tofile="${fichierConfig}"/>
+		<replace file="${fichierConfig}" token="%%livraison.type%%" value="${livraison.type}"/>
+		<replace file="${fichierConfig}" token="%%livraison.livraison%%" value="${livraison.livraison}"/>
+		<replace file="${fichierConfig}" token="%%livraison.version%%" value="${projet.versionA}"/>
+		<replace file="${fichierConfig}" token="%%livraison.installation%%" value="${livraison.installation}"/>
+		
+		<echo message="------------------"/>
+		<echo message="***   Modification de l'environnement dans .htaccess"/>
+		<replace file="${fichierHtaccess}" token="development" value="${environnement}"/>
+	</target>
+	
+	<!-- **************  EXPORT LOCAL ************* -->
+	<target name="exportLocal">    
+		<echo message="------------------"/>
+		<echo message="*** Nettoyage du projet"/>
+		<delete dir="${repLivraison}"/>
+		
+		<echo message="------------------"/>
+		<echo message="*** Creation de la livraison :"/>
+		<echo message="***   environnement = ${environnement} ***"/>
+		<echo message="***   projet = ${projet} ***"/>
+		<echo message="***   basicat = ${basicat} ***"/>
+		<echo message="***   version = ${projet.versionPA} ***"/>
+
+		<echo message="------------------"/>
+		<echo message="*** Copie des sources"/>
+		
+		<copy todir="${repLivraison}">
+			<fileset dir="${basedir}/../">				
+			</fileset>
+		</copy>
+		
+		<echo message="------------------"/>
+		<echo message="***   Creation du repertoire de signature et des signatures"/>
+		<mkdir dir="${repSignature}"/>
+		<touch file="${repSignature}/${nomPA}.SIG" />
+		<touch file="${repSignature}/${nomA}.SIG" />
+		
+		<echo message="------------------"/>
+		<echo message="***   Suppression des fichiers et dossiers ne devant pas etre livres"/>
+		<echo message="deleting **/.*/"/>
+		<delete defaultexcludes="false" includeemptydirs="true">
+			<fileset dir="${repLivraison}" casesensitive="yes">
+			  <patternset id="non.test.sources">
+			    <include name="**/.*/"/>
+			    <exclude name="**/.htaccess"/>
+			    <exclude name="**/.password"/>
+			  </patternset>
+			</fileset>
+		</delete>
+		<delete dir="${repLivraison}/packaging"/>
+		<delete dir="${repLivraison}/docs"/>
+		<delete dir="${repLivraison}/tests"/>
+		
+		<echo message="------------------"/>
+		<echo message="***   Modification du fichier de configuration d'installation"/>
+		<copy file="${fichierConfigOri}" tofile="${fichierConfig}"/>
+		<replace file="${fichierConfig}" token="%%livraison.type%%" value="${livraison.type}"/>
+		<replace file="${fichierConfig}" token="%%livraison.livraison%%" value="${livraison.livraison}"/>
+		<replace file="${fichierConfig}" token="%%livraison.version%%" value="${projet.versionA}"/>
+		<replace file="${fichierConfig}" token="%%livraison.installation%%" value="${livraison.installation}"/>
+		
+		<echo message="------------------"/>
+		<echo message="***   Modification de l'environnement dans .htaccess"/>
+		<replace file="${fichierHtaccess}" token="development" value="${environnement}"/>
+	</target>
+		
+	<!-- **************  TRANSFERTFTP ************* -->
+		<target name="transfertFTP" depends="livraison-disponible" if="livraison.presente">    
+			<echo message="------------------"/>
+			<echo message="*** Transfert de la livraison via FTP :"/>
+			<echo message="***   environnement = ${environnement} ***"/>
+			<echo message="***   url = ${ftp.url} ***"/>
+			<echo message="***   destination = ${ftp.destination} ***"/>
+			<echo message="***   username = ${ftp.user} ***"/>
+			<echo message="***   password = ${ftp.pass} ***"/>
+			<ftp server="${ftp.url}" remotedir="${ftp.destination}" binary="yes"
+			       userid="${ftp.user}" password="${ftp.pass}">
+				<fileset dir="${repLiv}"/>
+			</ftp> 
+			<ftp server="${ftp.url}" remotedir="/default/html/public/livraison/" binary="yes"
+			       userid="${ftp.user}" password="${ftp.pass}">
+				<fileset dir="${repLivraison}/public/livraison/">
+			      <include name="**/config.ini"/>
+			    </fileset>
+			</ftp>
+		</target>
+	
+	
+	<!-- **************  SVNANT-DISPONIBLE ************* -->
+	<target name="svnant-disponible">
+		<available resource="org/tigris/subversion/svnant/svnantlib.xml" classpathref="svnant.classpath" property="svnant.disponible"/>
+		<echo message="SVN-ANT disponible : ${svnant.disponible}"/>
+	</target>
+	
+	<!-- **************  LIVRAISON-DISPONIBLE ************* -->
+	<target name="livraison-disponible">
+	    <available file="${repSignature}/${nomPA}.SIG" property="livraison.presente"/>
+		<echo message="Livraison disponible : ${livraison.presente}"/>
+	</target>
+</project>

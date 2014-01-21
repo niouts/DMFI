@@ -1,0 +1,208 @@
+<?xml version="1.0"?>
+<projectProfile type="default" version="1.10">
+  <projectDirectory>
+    <projectProfileFile filesystemName=".zfproject.xml"/>
+    <applicationDirectory classNamePrefix="Application_">
+      <apisDirectory enabled="false"/>
+      <configsDirectory>
+        <applicationConfigFile type="ini"/>
+      </configsDirectory>
+      <controllersDirectory>
+        <controllerFile controllerName="Index">
+          <actionMethod actionName="index"/>
+        </controllerFile>
+        <controllerFile controllerName="Error"/>
+        <controllerFile controllerName="Initialisation">
+          <actionMethod actionName="index"/>
+        </controllerFile>
+        <controllerFile controllerName="Navigation">
+          <actionMethod actionName="index"/>
+        </controllerFile>
+        <controllerFile controllerName="Afficher">
+          <actionMethod actionName="rubrique"/>
+          <actionMethod actionName="sousrubrique"/>
+          <actionMethod actionName="article"/>
+        </controllerFile>
+      </controllersDirectory>
+      <formsDirectory enabled="false"/>
+      <layoutsDirectory enabled="false"/>
+      <modelsDirectory/>
+      <modulesDirectory>
+        <moduleDirectory moduleName="administration">
+          <apisDirectory enabled="false"/>
+          <configsDirectory enabled="false"/>
+          <controllersDirectory>
+            <controllerFile controllerName="Utilisateur">
+              <actionMethod actionName="index"/>
+              <actionMethod actionName="editer"/>
+            </controllerFile>
+            <controllerFile controllerName="Index">
+              <actionMethod actionName="index"/>
+            </controllerFile>
+            <controllerFile controllerName="Login">
+              <actionMethod actionName="index"/>
+            </controllerFile>
+            <controllerFile controllerName="Navigation">
+              <actionMethod actionName="index"/>
+            </controllerFile>
+            <controllerFile controllerName="Article">
+              <actionMethod actionName="index"/>
+              <actionMethod actionName="supprimer"/>
+              <actionMethod actionName="editer"/>
+            </controllerFile>
+            <controllerFile controllerName="Justonclick">
+              <actionMethod actionName="index"/>
+              <actionMethod actionName="changerordre"/>
+            </controllerFile>
+            <controllerFile controllerName="Transverse">
+              <actionMethod actionName="index"/>
+              <actionMethod actionName="supprimer"/>
+              <actionMethod actionName="editer"/>
+            </controllerFile>
+            <controllerFile controllerName="Parametre">
+              <actionMethod actionName="index"/>
+            </controllerFile>
+            <controllerFile controllerName="Rubrique">
+              <actionMethod actionName="index"/>
+              <actionMethod actionName="editer"/>
+            </controllerFile>
+          </controllersDirectory>
+          <formsDirectory>
+            <formFile formName="Login"/>
+            <formFile formName="Utilisateur"/>
+          </formsDirectory>
+          <layoutsDirectory enabled="false"/>
+          <modelsDirectory/>
+          <viewsDirectory>
+            <viewScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Utilisateur">
+                <viewScriptFile forActionName="index"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Index">
+                <viewScriptFile forActionName="index"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Login">
+                <viewScriptFile forActionName="index"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Navigation">
+                <viewScriptFile forActionName="index"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Article">
+                <viewScriptFile forActionName="index"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Utilisateur">
+                <viewScriptFile forActionName="editer"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Justonclick">
+                <viewScriptFile forActionName="index"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Transverse">
+                <viewScriptFile forActionName="index"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Parametre">
+                <viewScriptFile forActionName="index"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Rubrique">
+                <viewScriptFile forActionName="index"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Rubrique">
+                <viewScriptFile forActionName="editer"/>
+              </viewControllerScriptsDirectory>
+            </viewScriptsDirectory>
+            <viewHelpersDirectory/>
+            <viewFiltersDirectory/>
+          </viewsDirectory>
+        </moduleDirectory>
+      </modulesDirectory>
+      <viewsDirectory>
+        <viewScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Error">
+            <viewScriptFile forActionName="error"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Initialisation">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Navigation">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Afficher">
+            <viewScriptFile forActionName="rubrique"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Afficher">
+            <viewScriptFile forActionName="sousrubrique"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Afficher">
+            <viewScriptFile forActionName="article"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Article">
+            <viewScriptFile forActionName="supprimer"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Article">
+            <viewScriptFile forActionName="editer"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Justonclick">
+            <viewScriptFile forActionName="changerordre"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Transverse">
+            <viewScriptFile forActionName="supprimer"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Transverse">
+            <viewScriptFile forActionName="editer"/>
+          </viewControllerScriptsDirectory>
+        </viewScriptsDirectory>
+        <viewHelpersDirectory/>
+        <viewFiltersDirectory enabled="false"/>
+      </viewsDirectory>
+      <bootstrapFile filesystemName="Bootstrap.php"/>
+    </applicationDirectory>
+    <dataDirectory enabled="false">
+      <cacheDirectory enabled="false"/>
+      <searchIndexesDirectory enabled="false"/>
+      <localesDirectory enabled="false"/>
+      <logsDirectory enabled="false"/>
+      <sessionsDirectory enabled="false"/>
+      <uploadsDirectory enabled="false"/>
+    </dataDirectory>
+    <docsDirectory>
+      <file filesystemName="README.txt"/>
+    </docsDirectory>
+    <libraryDirectory>
+      <zfStandardLibraryDirectory enabled="false"/>
+    </libraryDirectory>
+    <publicDirectory>
+      <publicStylesheetsDirectory enabled="false"/>
+      <publicScriptsDirectory enabled="false"/>
+      <publicImagesDirectory enabled="false"/>
+      <publicIndexFile filesystemName="index.php"/>
+      <htaccessFile filesystemName=".htaccess"/>
+    </publicDirectory>
+    <projectProvidersDirectory enabled="false"/>
+    <temporaryDirectory enabled="false"/>
+    <testsDirectory>
+      <testPHPUnitConfigFile filesystemName="phpunit.xml"/>
+      <testApplicationDirectory>
+        <testApplicationBootstrapFile filesystemName="bootstrap.php"/>
+        <testApplicationControllerDirectory>
+          <testApplicationControllerFile filesystemName="InitialisationControllerTest.php"/>
+          <testApplicationControllerFile filesystemName="NavigationControllerTest.php"/>
+          <testApplicationControllerFile filesystemName="UtilisateurControllerTest.php"/>
+          <testApplicationControllerFile filesystemName="IndexControllerTest.php"/>
+          <testApplicationControllerFile filesystemName="LoginControllerTest.php"/>
+          <testApplicationControllerFile filesystemName="NavigationControllerTest.php"/>
+          <testApplicationControllerFile filesystemName="ArticleControllerTest.php"/>
+          <testApplicationControllerFile filesystemName="AfficherControllerTest.php"/>
+          <testApplicationControllerFile filesystemName="JustonclickControllerTest.php"/>
+          <testApplicationControllerFile filesystemName="TransverseControllerTest.php"/>
+          <testApplicationControllerFile filesystemName="ParametreControllerTest.php"/>
+          <testApplicationControllerFile filesystemName="RubriqueControllerTest.php"/>
+        </testApplicationControllerDirectory>
+      </testApplicationDirectory>
+      <testLibraryDirectory>
+        <testLibraryBootstrapFile filesystemName="bootstrap.php"/>
+      </testLibraryDirectory>
+    </testsDirectory>
+  </projectDirectory>
+</projectProfile>

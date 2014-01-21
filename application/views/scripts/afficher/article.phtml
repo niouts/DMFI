@@ -1,0 +1,9 @@
+<h2><?php echo $this->article->getTitre(); ?></h2>
+
+<div id="blocEntete">
+	<div id="datePubli"><?php echo Application_Service_Date::mySQLToIHM($this->article->getPublication_dt());?></div>
+</div>
+
+<div id="blocContenu">
+	<?php echo $this->article->getContenu(); ?>
+</div>

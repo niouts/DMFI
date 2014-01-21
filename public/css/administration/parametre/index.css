@@ -1,0 +1,11 @@
+@CHARSET "ISO-8859-1";
+.dataTable thead th:last-child {
+	text-align: center;
+	width : 25px;
+	cursor: auto;
+}
+
+.dataTable tbody td:last-child {
+	text-align: center;
+	width : 25px;
+}

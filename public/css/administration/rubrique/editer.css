@@ -1,0 +1,13 @@
+@CHARSET "ISO-8859-1";
+.Form {
+	margin: 0 auto;
+}
+
+.notification {
+	height: 24px;
+    margin-top: 0;
+    padding: 0 5px 3px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    vertical-align: middle;
+}

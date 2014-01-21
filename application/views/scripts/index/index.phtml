@@ -1,0 +1,80 @@
+<div id="blocGauche">
+	<div id="blocWelcome">
+		<span class="hightlight bienvenue">bienvenue</span><br> 
+		sur le portail du <br>
+		<span class="hightlight">domaine mobile<br>
+		France & international</span> 
+	</div>
+	
+	<h3>la vidéo</h3>
+	<div id="blocVideo">
+		<?php echo $this->params['video_contenu']; ?>
+	</div>
+	
+	<h3>la digital news</h3>
+	<div class="bloc" id="blocFlash">
+		<?php echo $this->params['flash_contenu']; ?>
+	</div>
+</div>
+
+<div id="blocDroite">
+	<div class="bloc" id="blocEdito">
+		<?php echo $this->params['edito_contenu']; ?>
+	</div>
+	
+	<div class="bloc" id="blocClick">
+		<h3>just 1 click</h3>
+		<ul>
+			<?php foreach ($this->just as $just) {
+			?>
+			<li><a href="<?php echo $just->getLien(); ?>" target="_blank"><?php echo $just->getLibelle(); ?></a></li>
+			<?php 	
+			} 
+			?>
+		</ul>
+	
+	</div>
+</div>
+
+<div id="blocCentre">	
+	<div id="blocBanniere">
+		<a href="<?php echo $this->params['banniere_lien']; ?>" target="_blank"><img src="<?php echo $this->params['banniere_image']; ?>"></a>
+	</div>
+		
+	<div id="blocNews">	
+		<ul class="tabs">
+			<li class="actif"><a rel="#ongletDomaine">actus du domaine</a></li>
+			<li class="last"><a rel="#ongletTransverse">actus transverses</a></li>
+		</ul>		
+		<div id="ongletDomaine"  class="tab-content">
+			<?php 
+			foreach ($this->actus as $article) {
+				$adrSsRub = $article->getSousRubrique()->getRubrique()->getAdresse().'/'.$article->getSousRubrique()->getAdresse();
+			?>
+			<article>
+				<?php echo Application_Service_Date::mySQLToIHM($article->getPublication_dt()); ?> <img alt=">" src="/images/fleche.png" /> 
+				<a href="<?php echo $adrSsRub; ?>"><?php echo $article->getSousRubrique()->getLibelle(); ?></a> <img alt=">" src="/images/fleche.png" /> 
+				<a href="/<?php echo $adrSsRub.'/'.$article->getAdresse(); ?>">
+					<?php echo $article->getTitre(); ?>
+				</a>
+			</article>
+			<?php 
+			}
+			?>
+		</div>
+		<div id="ongletTransverse"  class="tab-content">
+			<?php 
+			foreach ($this->actusTransv as $article) {
+			?>
+			<article>
+				<?php echo Application_Service_Date::mySQLToIHM($article->getPublication_dt()); ?> > 
+				<a href="<?php echo $article->getAdresse(); ?>">
+					<?php echo $article->getTitre(); ?>
+				</a>
+			</article>
+			<?php 
+			}
+			?>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,30 @@
+***********************************************************
+**********************   Principe   ***********************
+***********************************************************
+Création d'un répertoire "livraison" contenant les sources à livrer.
+Les fichiers properties peuvent être modifiés.
+
+***********************************************************
+*********************   Utilisation   *********************
+***********************************************************
+	1. Utilisation en ligne de commande
+- Pré requis : avoir installé Ant
+- Copier dans le répertoire lib de Ant le jar présent dans packging/jsch-lib et packaging/commons-net
+- Se rendre dans le répertoire de packaging de l'application
+	Ex : cd D:\workspace_zend\DMFI\packaging
+- Exécuter ant avec l'action voulue :
+	Ex : ant (pour avoir l'usage)
+	     ant clean (pour supprimer le répertoire de livraison)
+	     ant exportSvn (pour préparer le package à partir de SVN)
+	     ant exportLocal (pour préparer le package à partir des sources locales)
+	     ant transfertSFTP (pour transférer le package vers un serveur via SFTP)
+	     ant transfertFTP (pour transférer le package vers un serveur via FTP)
+
+
+	2. Utilisation dans Zend Studio 8
+- Aller dans nouveau projet et choisir "Ant Buildfile", ne pas le créer (pas nécessaire) et faire annuler.
+- Ajouter la Vue Ant
+- Glisser le fichier xml dans l'onglet de la vue, l'arborescence des actions possible apparait
+- Ajouter dans le classpath de Ant de Zend Studio le jar présent dans jsch-lib ainsi que celui présent dans commons-net 
+- Copier dans le répertoire lib de Ant le jar présent dans packging/jsch-lib en cliquant sur : Run as > Ant Build puis Classpath
+- Double cliquer sur l'action voulue, la console affiche le résultat

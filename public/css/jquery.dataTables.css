@@ -1,0 +1,293 @@
+
+/*
+ * Table
+ */
+table.dataTable {
+	margin: 0 auto;
+	clear: both;
+	width: 100%;
+	border-spacing: 0;
+	z-index:4;
+}
+
+table.dataTable thead th {
+	padding: 3px 18px 3px 10px;
+	font-weight: bold;
+	cursor: pointer;
+	*cursor: hand;
+	border-bottom: 1px solid #DDDDDD;
+	border-left: 1px solid #333;
+	background-color: #E5E5E5;
+    text-decoration: none;
+	text-align: left;
+	text-transform: lowercase;
+}
+
+table.dataTable thead th:FIRST-CHILD {
+	border-left: 0;
+}
+
+table.dataTable thead th:hover {
+	text-decoration: underline;
+	color: #FF7900;
+}
+
+table.dataTable thead th.sorting_disabled:hover {
+	text-decoration: none;
+	color: #333;
+	cursor : auto;
+}
+
+table.dataTable tfoot th {
+	padding: 3px 18px 3px 10px;
+	border-top: 1px solid black;
+	font-weight: bold;
+}
+
+table.dataTable td {
+	padding: 3px 10px;
+	border-bottom: 1px solid #CCC;
+}
+
+table.dataTable td.center,
+table.dataTable td.dataTables_empty {
+	text-align: center;
+}
+
+table.dataTable tr.odd { background-color: #FFF; }
+table.dataTable tr.even { background-color: #EEE; }
+
+
+/*
+ * Table wrapper
+ */
+.dataTables_wrapper {
+	/*position: relative;*/
+	clear: both;
+	*zoom: 1;
+}
+
+
+/*
+ * Page length menu
+ */
+.dataTables_length {
+	float: left;
+}
+
+
+/*
+ * Filter
+ */
+/*.dataTables_filter {
+	float: right;
+	text-align: right;
+}*/
+
+
+/*
+ * Table information
+ */
+.dataTables_info {
+	clear: both;
+	float: left;
+}
+
+
+/*
+ * Pagination
+ */
+.dataTables_paginate {
+	text-align: center;
+}
+
+/* Two button pagination - previous / next */
+.paginate_disabled_previous,
+.paginate_enabled_previous,
+.paginate_disabled_next,
+.paginate_enabled_next {
+	height: 19px;
+	float: left;
+	cursor: pointer;
+	*cursor: hand;
+	color: #111 !important;
+}
+.paginate_disabled_previous:hover,
+.paginate_enabled_previous:hover,
+.paginate_disabled_next:hover,
+.paginate_enabled_next:hover {
+	text-decoration: none !important;
+}
+.paginate_disabled_previous:active,
+.paginate_enabled_previous:active,
+.paginate_disabled_next:active,
+.paginate_enabled_next:active {
+	outline: none;
+}
+
+.paginate_disabled_previous,
+.paginate_disabled_next {
+	color: #666 !important;
+}
+.paginate_disabled_previous,
+.paginate_enabled_previous {
+	padding-left: 23px;
+}
+.paginate_disabled_next,
+.paginate_enabled_next {
+	padding-right: 23px;
+	margin-left: 10px;
+}
+
+.paginate_enabled_previous { background: url('/images/dataTable/back_enabled.png') no-repeat top left; }
+.paginate_enabled_previous:hover { background: url('/images/dataTable/back_enabled_hover.png') no-repeat top left; }
+.paginate_disabled_previous { background: url('/images/dataTable/back_disabled.png') no-repeat top left; }
+
+.paginate_enabled_next { background: url('/images/dataTable/forward_enabled.png') no-repeat top right; }
+.paginate_enabled_next:hover { background: url('/images/dataTable/forward_enabled_hover.png') no-repeat top right; }
+.paginate_disabled_next { background: url('/images/dataTable/forward_disabled.png') no-repeat top right; }
+
+/* Full number pagination */
+.paging_full_numbers {
+	height: 23px;
+	line-height: 23px;
+	margin-top : 10px;
+}
+.paging_full_numbers a:active {
+	outline: none
+}
+.paging_full_numbers a:hover {
+	text-decoration: none;
+}
+
+.paging_full_numbers a.paginate_button,
+.paging_full_numbers a.paginate_active {
+
+	padding: 2px 5px;
+	margin: 0 3px;
+	cursor: pointer;
+	*cursor: hand;
+	color: #333;
+}
+
+.paging_full_numbers a.paginate_button {
+	background-color: #FFF;
+}
+
+.paging_full_numbers a.paginate_button:hover {
+	text-decoration: underline !important;
+	color : #F16E00;
+}
+
+.paging_full_numbers a.paginate_active {
+	color : #F16E00;
+}
+
+
+/*
+ * Processing indicator
+ */
+.dataTables_processing {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 250px;
+	height: 30px;
+	margin-left: -125px;
+	margin-top: -15px;
+	padding: 14px 0 2px 0;
+	border: 1px solid #ddd;
+	text-align: center;
+	color: #999;
+	font-size: 14px;
+	background-color: white;
+}
+
+
+/*
+ * Sorting
+ */
+.sorting_asc { background: url('/images/dataTable/sort_asc.png') no-repeat center right #CCC !important;}
+.sorting_desc { background: url('/images/dataTable/sort_desc.png') no-repeat center right #CCC !important; }
+
+.sorting_asc_disabled { background: url('/images/dataTable/sort_asc_disabled.png') no-repeat center right; }
+.sorting_desc_disabled { background: url('/images/dataTable/sort_desc_disabled.png') no-repeat center right; }
+ 
+table.dataTable thead th:active,
+table.dataTable thead td:active {
+	outline: none;
+}
+
+
+/*
+ * Scrolling
+ */
+.dataTables_scroll {
+	clear: both;
+}
+
+.dataTables_scrollBody {
+	*margin-top: -1px;
+	-webkit-overflow-scrolling: touch;
+}
+
+.bottom {
+	width: 100%;
+}
+
+.pagination {
+	margin : 0 auto;
+}
+
+.recherche{
+	margin-bottom: 10px;
+	float : left;
+}
+
+.first.paginate_button {
+	background: url('/images/dataTable/arrow_dirmini_orange_wi.gif') no-repeat center center !important;
+	height: 4px;
+	display: inline-block;
+}
+
+.first.paginate_button.paginate_button_disabled {
+	background: url('/images/dataTable/arrow_dirmini_orange_wi_d.gif') no-repeat center center !important;
+	height: 4px;
+	display: inline-block;
+}
+
+.previous.paginate_button {
+	background: url('/images/dataTable/arrow_dirmini_orange_w.gif') no-repeat center center !important;
+	height: 4px;
+	display: inline-block;
+}
+
+.previous.paginate_button.paginate_button_disabled {
+	background: url('/images/dataTable/arrow_dirmini_orange_w_d.gif') no-repeat center center !important;
+	height: 4px;
+	display: inline-block;
+}
+
+.next.paginate_button {
+	background: url('/images/dataTable/arrow_dirmini_orange_e.gif') no-repeat center center !important;
+	height: 4px;
+	display: inline-block;
+}
+
+.next.paginate_button.paginate_button_disabled {
+	background: url('/images/dataTable/arrow_dirmini_orange_e_d.gif') no-repeat center center !important;
+	height: 4px;
+	display: inline-block;
+}
+
+.last.paginate_button {
+	background: url('/images/dataTable/arrow_dirmini_orange_ei.gif') no-repeat center center !important;
+	height: 4px;
+	display: inline-block;
+}
+
+.last.paginate_button.paginate_button_disabled {
+	background: url('/images/dataTable/arrow_dirmini_orange_ei_d.gif') no-repeat center center !important;
+	height: 4px;
+	display: inline-block;
+}

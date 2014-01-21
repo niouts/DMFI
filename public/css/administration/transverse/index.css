@@ -1,0 +1,16 @@
+@CHARSET "ISO-8859-1";
+.btn_add {
+	margin-top: 4px; 
+	margin-bottom: 0px;
+}
+
+.dataTable thead th:last-child {
+	text-align: center;
+	width : 50px;
+	cursor: auto;
+}
+
+.dataTable tbody td:last-child {
+	text-align: center;
+	width : 50px;
+}

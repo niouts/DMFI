@@ -1,0 +1,31 @@
+<h2><?php echo $this->titre; ?></h2>
+
+<?php if (count($this->actus)) { ?>
+<table class="dataTable">
+	<thead>
+	<tr>
+		<th>Publication</th>
+		<th>Article</th>
+	</tr>
+	</thead>
+	<tbody>
+	<?php 
+	foreach ($this->actus as $article) {
+		$adrSsRub = $article->getSousRubrique()->getRubrique()->getAdresse().'/'.$article->getSousRubrique()->getAdresse();
+	?>
+	<tr>
+	    <td><?php echo Application_Service_Date::mySQLToIHM($article->getCreation_dt()); ?></td>
+	    <td>
+		    <a href="/<?php echo $adrSsRub.'/'.$article->getAdresse(); ?>">
+				<?php echo $article->getTitre(); ?>
+			</a>
+		</td>
+  	</tr>
+	<?php 
+	}
+	?>
+	</tbody>
+</table>
+<?php 
+}
+?>
